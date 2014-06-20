@@ -10,12 +10,22 @@ $uptime = file_get_contents("uptime.txt");
 body{
     font-family: 'Courier New', sans-serif;
 }
+ul{
+    list-style: none; 
+}
 </style>
 </head>
 <body onload="update();">
    <center>
     <h1 id="uptime"></h1>
     <h2 id="message"></h2>
+    <p style="margin-top: 10%">Schlafstatistik seit <script>document.write(new Date(1403173800*1000))</script>:<ul>
+        <li>Fri: 4:40h</li>
+        <li></li>
+        <li></li>
+        <hr/>
+        <li>Gesamt: 4:40h seit Anfang der Statistik.</li>
+    </ul></p>
    </center>
    <script src="jquery.min.js"></script>
    <script>
@@ -32,8 +42,8 @@ body{
             ,   wokeUp
             ,   nowUptime
             
-            nowUptime = new Date(Date.now() - uptime*1000)
-           var timestring = nulliere(nowUptime.getHours())+":"+nulliere(nowUptime.getMinutes())+":"+nulliere(nowUptime.getSeconds())
+            nowUptime = new Date(Date.now() - Math.round(new Date( uptime ).getTime()) * 1000 )
+           var timestring = nulliere(nowUptime.getDate()-1)+":"+nulliere(nowUptime.getHours())+":"+nulliere(nowUptime.getMinutes())+":"+nulliere(nowUptime.getSeconds())
            document.getElementById("uptime").innerHTML = timestring
            $('#message').load('message.txt')
        }, 1000);
