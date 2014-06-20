@@ -23,7 +23,7 @@ case "$1" in
 esac
 
 #read msg with spaces
-if ![[ -z "$msg" ]];then
+if [[ -z "$msg" ]];then
     msg="${str:4}"
 fi
 
@@ -49,7 +49,6 @@ else
 	    echo "[INFO] Nachricht aktualisieren..."
 		echo "[INFO] Nachricht: $msg"
 		msg="$(echo "$msg" | sed -e 's/ /\%20/g')"
-		echo "$msg"
 		curl --get -d auth=$auth -d msg="$msg" http://uptime.jh0.eu/set.php && sleep $sleeptime
 		success=1
 	fi

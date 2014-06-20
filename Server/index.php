@@ -17,7 +17,7 @@ ul{
 </head>
 <body onload="update();">
    <center>
-    <h1 id="uptime"></h1>
+    <h1 id="uptime">00:00:00:00</h1>
     <h2 id="message"></h2>
     <p style="margin-top: 10%">Schlafstatistik seit <script>document.write(new Date(1403173800*1000))</script>:<ul>
         <li>Fri: 4:40h</li>
