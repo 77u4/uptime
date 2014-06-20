@@ -1,6 +1,6 @@
 <?php
 //SET Uptime Password
-define(SETTING_PASS, "asdf");
+define(SETTING_PASS, "PASSWORD");
 
 if(($_GET['auth'] == SETTING_PASS)){
     $uptimeFile = 'uptime.txt';
